@@ -1,7 +1,6 @@
 package com.assignment.wdmtask.Service;
 
 import com.assignment.wdmtask.DTO.ProductDto;
-
 import java.util.List;
 
 public interface ProductService {
