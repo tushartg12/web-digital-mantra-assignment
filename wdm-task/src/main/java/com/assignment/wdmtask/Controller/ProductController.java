@@ -16,7 +16,7 @@ public class ProductController {
     ProductService productService;
 
     //POST -> Add Product
-    @PostMapping("/addProduct")
+    @PostMapping("/products")
     public ResponseEntity<ProductDto> addProduct(@RequestBody @Valid ProductDto productDto){
         ProductDto productDto1=productService.createProduct(productDto);
         return new ResponseEntity<>(productDto1, HttpStatus.CREATED);
@@ -37,14 +37,14 @@ public class ProductController {
     }
 
     //PUT -> Update product
-    @PutMapping("/updateProduct/{productId}")
+    @PutMapping("/products/{productId}")
     public ResponseEntity<ProductDto> updateProduct(@PathVariable ("productId") Integer productId, @RequestBody @Valid ProductDto productDto){
         ProductDto productDto1=productService.updateProduct(productDto,productId);
         return new ResponseEntity<>(productDto1,HttpStatus.OK);
     }
 
     //DELETE -> Delete product
-    @DeleteMapping("/deleteProduct/{productId}")
+    @DeleteMapping("/products/{productId}")
     public ResponseEntity<ApiResponse> deleteProduct(@PathVariable("productId") Integer productId){
         productService.deleteProduct(productId);
         return new ResponseEntity<>(new ApiResponse("Product deleted successfully",true),HttpStatus.OK);
